@@ -22,7 +22,7 @@ checkuser --config-port 5000 --start --daemon
 
 ### Ou
 ```
-bash <(curl -sL https://raw.githubusercontent.com/PhoenixxZ2023/DTCheckUser/main/install.sh)
+bash <(curl -sL https://raw.githubusercontent.com/PhoenixxZ2023/DTCheckUser/master/install.sh)
 ```
  *Opcao 1*
 
@@ -33,7 +33,7 @@ python3 -m pip install --upgrade git+https://github.com/PhoenixxZ2023/DTCheckUse
 
 ### Ou
 ```
-bash <(curl -sL https://raw.githubusercontent.com/PhoenixxZ2023/DTCheckUser/main/install.sh)
+bash <(curl -sL https://raw.githubusercontent.com/PhoenixxZ2023/DTCheckUser/master/install.sh)
 ```
  *Opcao 2*
 
