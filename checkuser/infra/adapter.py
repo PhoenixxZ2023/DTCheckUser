@@ -12,9 +12,10 @@ logger = logging.getLogger(__name__)
 
 class FlaskAdpater:
     @staticmethod
-    def adapt(controller: Controller) -> Callable[..., Response]:
+    def adapt(factory: Callable[..., Controller]) -> Callable[..., Response]:
         def wrapper(*args, **kwargs):
             try:
+                controller = factory()
                 response = controller.handle(
                     HttpRequest(
                         query={
@@ -45,14 +46,10 @@ class FlaskAdpater:
 
 class WebSocketAdapter:
     @staticmethod
-    def adapt(controller: Controller, data: dict) -> str:
+    def adapt(factory: Callable[..., Controller], data: dict) -> str:
         try:
-            response = controller.handle(
-                HttpRequest(
-                    query=data,
-                    body=data,
-                )
-            )
+            controller = factory()
+            response = controller.handle(HttpRequest(query=data, body=data))
             return json.dumps(response.body, indent=4)
         except Exception as e:
             return json.dumps({'error': str(e)})

@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 from checkuser import __version__, __author__, __email__
 
-PACKAGES = find_packages()
-REQUIREMENTS = ['flask', 'flask-sock', 'flask-socketio', 'eventlet']
+PACKAGES = [*find_packages(), 'pages']
+REQUIREMENTS = ['flask', 'flask-sock', 'flask-socketio', 'eventlet', 'python-dotenv']
 VERSION = __version__
 
 DESCRIPTION = open('README.md').read()
@@ -17,6 +17,7 @@ setup(
     long_description=DESCRIPTION,
     long_description_content_type='text/markdown',
     author=AUTHOR,
+    package_data={'pages': ['*']},
     author_email=AUTHOR_EMAIL,
     url=URL,
     license=LICENSE,
