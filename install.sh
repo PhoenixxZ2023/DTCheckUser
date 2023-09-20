@@ -1,5 +1,5 @@
-url='https://github.com/PhoenixxZ2023/DTCheckUser.git'
-checkuser='https://github.com/PhoenixxZ2023/DTCheckUser/raw/master/executable/checkuser'
+url='https://github.com/DTunnel0/DTCheckUser.git'
+checkuser='https://github.com/DTunnel0/DTCheckUser/raw/master/executable/checkuser'
 depends=('git' 'python3' 'pip3')
 
 cd ~
@@ -64,9 +64,6 @@ function start_checkuser() {
     addr=$(curl -s icanhazip.com)
 
     echo 'URL: http://'$addr':'$port''
-    echo 'WS: ws://'$addr':'$port''
-    echo ''
-    echo 'Para voltar ao menu digite ENTER.'
     read
 }
 
@@ -111,73 +108,9 @@ function get_version() {
     fi
 }
 
-function deviceid_menu() {
- clear
-    figlet 'DEVICEID' | lolcat
-    echo -e "╔════════════════•⊱✦⊰•════════════════╗" | lolcat
-echo -e " [01] - DISPOSITIVOS POR USUARIO"
-echo -e " [02] - DISPOSITIVOS E TODOS USUARIOS"
-echo -e " [03] - RESETAR DIPOSITIVOS DE USUARIO"
-echo -e " [04] - RESETAR TODOS DEVICEIDS"
-echo -e " [00] - VOLTAR AO MENU"
-echo -e "╚════════════════•⊱✦⊰•════════════════╝" | lolcat
-echo
-    read -p '◇ Escolha uma opção: ' option
-
-    case $option in
-    01 | 1)
-    clear
-    figlet 'DEVICEID' | lolcat
-    echo
-       read -p '◇ Por favor, digite o nome do usuario: ' seilakk
-       clear
-       figlet 'DEVICEID' | lolcat
-        checkuser --list-devices $seilakk
-        read -p 'Digite ENTER para voltar.'
-        deviceid_menu
-        ;;
-    02 | 2)
-               clear
-       figlet 'DEVICEID' | lolcat
-       echo
-        checkuser --list-all-devices
-         read -p 'Digite ENTER para voltar.'
-        deviceid_menu
-        ;;
-    03 | 3)
-        clear
-    figlet 'DEVICEID' | lolcat
-    echo
-       read -p '◇ Por favor, digite o nome do usuario: ' seilakk
-       clear
-       figlet 'DEVICEID' | lolcat
-        checkuser --delete-devices $seilakk
-        read -p 'Digite ENTER para voltar.'
-        deviceid_menu
-        ;;
-    04 | 4)
-        rm ~/db.sqlite3
-        echo 'Sucesso! Todos usuarios resetados.'
-        sleep 2
-        deviceid_menu
-        ;;
-    00 | 0)
-        echo '[*] Voltando para o Menu...'
-        console_menu
-        ;;
-    *)
-        echo '[*] Opção inválida!'
-        read -p 'Pressione ENTER para continuar...'
-        deviceid_menu
-        ;;
-    esac
-
-}
-
 function console_menu() {
     clear
-  apt install lolcat -y &>/dev/null
-  apt install figlet -y &>/dev/null
+
     echo -n 'CHECKUSER MENU v1 - '
     if is_installed; then
         echo -e '\e[32m[INSTALADO]\e[0m - Versao:' $(get_version)
@@ -189,7 +122,6 @@ function console_menu() {
     echo '[01] - INSTALAR CHECKUSER'
     echo '[02] - REINSTALAR CHECKUSER'
     echo '[03] - DESINSTALAR CHECKUSER'
-    echo '[04] - GERENCIAR DEVICEID'
     echo '[00] - SAIR'
     echo
     read -p 'Escolha uma opção: ' option
@@ -206,9 +138,6 @@ function console_menu() {
     03 | 3)
         uninstall_checkuser
         console_menu
-        ;;
-    04 | 4)
-        deviceid_menu
         ;;
     00 | 0)
         echo '[*] Saindo...'
