@@ -119,10 +119,12 @@ function console_menu() {
     fi
 
     echo
-    echo '[01] - INSTALAR CHECKUSER'
-    echo '[02] - REINSTALAR CHECKUSER'
-    echo '[03] - DESINSTALAR CHECKUSER'
-    echo '[00] - SAIR'
+    echo -e "\033[01;31m║\033[0m\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37m• \033[1;33mINSTALAR CHECKUSER \033[0m"
+    echo -e "\033[01;31m║\033[0m\033[1;31m[\033[1;36m2\033[1;31m] \033[1;37m• \033[1;33mREINSTALAR CHECKUSER \033[0m"
+    echo -e "\033[01;31m║\033[0m\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37m• \033[1;33MREINSTALAR CHECKUSER \033[0m"
+    echo -e "\033[01;31m║\033[0m\033[1;31m[\033[1;36m00\033[1;31m] \033[1;37m• \033[1;33mSAIR \033[0m"
+    echo ""
+    echo -ne "\033[1;31m➤ \033[1;32mESCOLHA OPÇÃO DESEJADA\033[1;33m\033[1;31m\033[1;37m"
     echo
     read -p 'Escolha uma opção: ' option
 
