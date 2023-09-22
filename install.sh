@@ -124,7 +124,7 @@ function console_menu() {
     echo -e "\033[01;31m║\033[0m\033[1;31m[\033[1;36m3\033[1;31m] \033[1;37m• \033[1;33mDESINSTALAR CHECKUSER \033[0m"
     echo -e "\033[01;31m║\033[0m\033[1;31m[\033[1;36m00\033[1;31m] \033[1;37m• \033[1;33mSAIR \033[0m"
     echo
-    read -p 'Escolha uma opção: ' option
+    read -p 'ESCOLHA UMA OPÇÃO: ' option
 
     case $option in
     01 | 1)
